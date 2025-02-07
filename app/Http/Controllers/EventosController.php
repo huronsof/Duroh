@@ -8,12 +8,19 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Psy\Readline\Hoa\Console;
 use Illuminate\Support\Facades\Storage;
+use App\Services\MyService;
 
 class EventosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+     protected $myService;
+        public function __construct(MyService $myService)
+    {
+        $this->myService = $myService;
+    }
+
     public function index()
     {
      return Inertia::render('Eventos/Index',[

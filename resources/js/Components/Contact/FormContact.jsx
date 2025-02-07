@@ -11,7 +11,7 @@ export default function Formcontact() {
                     </h2>
                     <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
                         ¿Tienes un problema? ¿Quieres enviar comentarios sobre
-                        un producto / rifa ?. Premitenos tener el gusto de
+                        un producto / rifa ?. Permitenos tener el gusto de
                         porder darte una pronta respuesta.
                     </p>
                     <form action="#" class="space-y-8">

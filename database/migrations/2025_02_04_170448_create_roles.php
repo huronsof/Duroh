@@ -13,25 +13,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-      $role1 =  Role::create(['name'=>'editar']);
-      $role2 =  Role::create(['name'=>'eliminar']);
+      $role1 =  Role::create(['name'=>'admin']);
+      $role2 =  Role::create(['name'=>'Blogger']);
+ 
 
-      Permission::create(['name' => 'das.dashboard']);
+      $user = User::find(2);
+      $user ->assignRole($role1);
 
-      Permission::create(['name' => 'das.productos.index']);
-      Permission::create(['name' => 'das.productos.create']);
-      Permission::create(['name' => 'das.productos.edit']);
-      Permission::create(['name' => 'das.productos.destroy']);
+      Permission::create(['name' => 'das.dashboard'])->assignRole($role1);
 
-       Permission::create(['name' => 'das.categoria.index']);
-      Permission::create(['name' => 'das.categoria.create']);
-      Permission::create(['name' => 'das.categoria.edit']);
-      Permission::create(['name' => 'das.categoria.destroy']);
+      Permission::create(['name' => 'das.productos.index'])->assignRole($role1);
+      Permission::create(['name' => 'das.productos.create'])->assignRole($role1);
+      Permission::create(['name' => 'das.productos.edit'])->assignRole($role1);
+      Permission::create(['name' => 'das.productos.destroy'])->assignRole($role1);
 
-       Permission::create(['name' => 'das.eventos.create']);
-      Permission::create(['name' => 'das.eventos.create']);
-      Permission::create(['name' => 'das.eventos.edit']);
-      Permission::create(['name' => 'das.eventos.destroy']);
+      Permission::create(['name' => 'das.categoria.index'])->assignRole($role1);
+      Permission::create(['name' => 'das.categoria.create'])->assignRole($role1);
+      Permission::create(['name' => 'das.categoria.edit'])->assignRole($role1);
+      Permission::create(['name' => 'das.categoria.destroy'])->assignRole($role1);
+
+      Permission::create(['name' => 'das.eventos.index'])->syncRoles([$role1,$role2]);
+      Permission::create(['name' => 'das.eventos.create'])->syncRoles([$role1,$role2]);
+      Permission::create(['name' => 'das.eventos.edit'])->syncRoles([$role1,$role2]);
+      Permission::create(['name' => 'das.eventos.destroy'])->syncRoles([$role1,$role2]);
     }
 
     /**

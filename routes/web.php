@@ -54,19 +54,19 @@ Route::get('/Dprod/{prod}', function () {
 
 Route::resource('categoria', CategoriaController::class)
 ->only('index','store')
-->middleware(['auth', 'verified']) ;
+->middleware(['auth', 'verified','can:das.categoria.index']) ;
 
 Route::resource('producto', ProductosController::class)
 ->only('index','store','show')
-->middleware(['auth', 'verified']);
+->middleware(['auth', 'verified','can:das.productos.index']);
 
 Route::resource('Eventos', EventosController::class)
 ->only('index','store','show')
-->middleware(['auth', 'verified']);
+->middleware(['auth', 'verified','can:das.eventos.index']);
 
 Route::resource('DetalleUsers', DetalleUsersController::class)
 ->only('index','store','show')
-->middleware(['auth', 'verified']);
+->middleware(['auth', 'verified','can:das.config.index']);
 
 Route::get('/', function () {
     $products = Productos::with('user')->latest()->get();
