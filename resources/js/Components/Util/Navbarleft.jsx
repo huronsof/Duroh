@@ -86,7 +86,7 @@ export default function Navbarleft({ auth, logo }) {
                                     href={route("dashboard")}
                                     className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
-                                    Dashboard
+                                    Cuenta
                                 </Link>
                             ) : (
                                 <>
@@ -110,10 +110,8 @@ export default function Navbarleft({ auth, logo }) {
                         {auth.user ? (
                             <Link
                                 href={route("dashboard")}
-                                className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Dashboard
-                            </Link>
+                                className="rounded-md px-3 py-2 text-red ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            ></Link>
                         ) : (
                             <>
                                 <Link
@@ -133,28 +131,24 @@ export default function Navbarleft({ auth, logo }) {
                     </div>
                     <div class="space-y-1 border-t pb-3 pt-2 sm:hidden">
                         <a
-                            class="block px-3 py-2 rounded-md bg-sky-500 text-white"
-                            href="#"
+                            className="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
+                            href="/"
                         >
-                            Home
+                            Inicio
                         </a>
-                        <a
-                            class="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
-                            href="#"
+                        <Link
+                            className="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
+                            href={route("Nosotros")}
                         >
-                            About
-                        </a>
-                        <a
-                            class="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
-                            href="#"
-                        >
-                            Blog
-                        </a>
-                        <a
-                            class="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
-                            href="#"
-                        >
-                            Contacto
+                            Nosotros
+                        </Link>
+                        <a>
+                            <Link
+                                className="block px-3 py-2 rounded-md transition-colors text-slate-700 hover:bg-sky-500 hover:text-white"
+                                href={route("contactoduroH")}
+                            >
+                                Contactanos
+                            </Link>
                         </a>
                     </div>
                 </div>
